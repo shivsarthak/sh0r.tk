@@ -1,3 +1,4 @@
+const PORT = process.env.PORT;
 const express = require('express');
 const app = express();
 const url = process.env.DB_URL;
@@ -50,6 +51,6 @@ app.get('/:id', async(req, res) => {
 
 
 
-app.listen(3000, function() {
+app.listen(PORT, function() {
     console.log('Server is listening on port 8080')
 });
