@@ -16,7 +16,6 @@ app.use(express.static('./public'));
 app.post('/', async(req, res, next) => {
     try {
         var id = req.body.tag;
-        console.log(id == "");
         if (id == "") {
             id = randomStr(4);
         }
@@ -26,9 +25,7 @@ app.post('/', async(req, res, next) => {
             throw new Error("Tag already Exists");
         }
         const write = await collection.insert({ tag: id, url: req.body.url });
-        res.send(`<h3>Url is : <a href="http://sh0r.tk/${write.tag}">http://sh0r.tk/${write.tag}</a></h3>`, 200);
-        client.close();
-
+        res.status(200).send(write.tag.toString());
     } catch (err) {
         next(err.message);
     }
