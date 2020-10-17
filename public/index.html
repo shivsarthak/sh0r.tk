@@ -17,21 +17,34 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1>Sh0r.tk - A Url Shortener</h1>
-        <main id="app">
-         <form action="/" method="POST">
-            <label for="url">Enter URL:</label>
-            <input type="url" name="url" id="url"
-                placeholder="https://example.com"
-                pattern="https://.*"
-                required size="30">
-            <label for="url">Enter Tag:</label>
-            <input type="text" name="tag" id="tag"
-                placeholder="Custom Tag"
-               size="30">               
-            <button >Ok</button>
-        </form>
-        </main>
-       
+        <div class="root">
+            <h1>Sh0r.tk</h1>
+            <h2>a url shortener</h2>
+            <form action="/" method="POST">
+                <label for="url">URL:</label>
+                <input 
+                    type="url" 
+                    name="url" 
+                    id="url"
+                    placeholder="https://example.com"
+                    size="30"
+                    required>
+                <br />
+                <br />
+                <label for="url">Tag:</label>
+                <input 
+                    type="text" 
+                    name="tag" 
+                    id="tag"
+                    placeholder="Custom Tag (Optional)"
+                    size="30">
+                <br />
+                <br />
+                <button type="submit">Shrink</button>
+            </form>
+        </div>
+        <footer>
+            © 2020 - website maintained by Shiv Sarthak
+        </footer>
     </body>
 </html>

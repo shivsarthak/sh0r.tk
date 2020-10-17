@@ -1,9 +1,23 @@
-label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
+body {
+  margin: 0;
+  text-align: center;
 }
 
-input,
-label {
-    margin: .4rem 0;
+.root{
+	color: black;
+	margin: auto;
+	width: 80%;
 }
+
+input{
+	width: 60%;
+}
+
+footer{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+}
+
