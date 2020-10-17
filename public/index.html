@@ -11,7 +11,7 @@
         <title>Sh0r.tk</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -20,7 +20,7 @@
         <div class="root">
             <h1>Sh0r.tk</h1>
             <h2>a url shortener</h2>
-            <form action="/" method="POST">
+            <form id="myForm" method="POST">
                 <label for="url">URL:</label>
                 <input 
                     type="url" 
@@ -40,11 +40,53 @@
                     size="30">
                 <br />
                 <br />
-                <button type="submit">Shrink</button>
+                <button id="submitBtn" type="submit">Shrink</button>
             </form>
+            <br />
+            <br />
+            <h2 id="shrinkUrLink"></h2>
         </div>
         <footer>
             © 2020 - website maintained by Shiv Sarthak
         </footer>
     </body>
+    <script type="text/javascript">
+        const form = document.getElementById( "myForm");
+
+        form.addEventListener( "submit", function ( event ) {
+            document.getElementById( "submitBtn").disabled = true;
+            document.getElementById( "submitBtn").innerHTML = "<i class='fa fa-refresh fa-spin'></i> Shrink";
+            event.preventDefault();
+            shrinkUrl();
+        } );
+        
+        function shrinkUrl()
+        {
+            const url = document.getElementById( "url");
+            const tag = document.getElementById( "tag");
+            const link = document.getElementById( "shrinkUrLink");
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", '/', true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() { 
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200)
+                {
+                    link.innerHTML = "Your shrinked url is : <a href='http://127.0.1.55:8080/"+this.responseText+"'>http://127.0.1.55:8080/"+this.responseText+"</a>";
+                    url.value="";
+                    tag.value="";
+                    document.getElementById( "submitBtn").innerHTML = "Shrink";
+                    document.getElementById( "submitBtn").disabled = false;
+                }
+                else if (this.readyState === XMLHttpRequest.DONE && this.status === 500)
+                {
+                    link.innerHTML = "Tag already exist";
+                    document.getElementById( "submitBtn").innerHTML = "Shrink";
+                    document.getElementById( "submitBtn").disabled = false;
+                }
+            }
+            xhr.send("url=" + url.value + "&tag=" + tag.value);
+        }
+
+    </script>
 </html>
