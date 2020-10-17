@@ -72,7 +72,7 @@
             xhr.onreadystatechange = function() { 
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200)
                 {
-                    link.innerHTML = "Your shrinked url is : <a href='http://127.0.1.55:8080/"+this.responseText+"'>http://127.0.1.55:8080/"+this.responseText+"</a>";
+                    link.innerHTML = "Your shrinked url is : <a href='https://sh0r-tk.herokuapp.com/"+this.responseText+"'>https://sh0r-tk.herokuapp.com/"+this.responseText+"</a>";
                     url.value="";
                     tag.value="";
                     document.getElementById( "submitBtn").innerHTML = "Shrink";
