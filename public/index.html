@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
+<html lang="en">
     <head>
         <link rel="stylesheet" href="main.css">
         <meta charset="utf-8">
@@ -72,7 +72,7 @@
             xhr.onreadystatechange = function() { 
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 200)
                 {
-                    link.innerHTML = "Your shrinked url is : <a href='https://sh0r-tk.herokuapp.com/"+this.responseText+"'>https://sh0r-tk.herokuapp.com/"+this.responseText+"</a>";
+                    link.innerHTML = "Your shrinked url is : <a href='https://sh0r-tk.com/"+this.responseText+"'>https://sh0r-tk.com/"+this.responseText+"</a>";
                     url.value="";
                     tag.value="";
                     document.getElementById( "submitBtn").innerHTML = "Shrink";
